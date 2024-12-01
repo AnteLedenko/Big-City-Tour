@@ -3,7 +3,7 @@
 Big City Tours is a web application that showcases tours in biggest cities of England, Scotland, Ireland and Whales. Users can browse city tours, read and leave reviews, and manage their profiles.
 
 ## Link to website:
- [](https://big-city-tour.onrender.com)
+ [https://big-city-tour.onrender.com](https://big-city-tour.onrender.com)
 
 ## Installation
 1. Clone the repository:
