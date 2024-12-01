@@ -1,0 +1,12 @@
+<!--
+    This page provides comfirmation form with a logout button that redirects to login page
+    and a cancel button (link) that redirects to home page. 
+-->
+{% extends 'base.html' %}
+{% block content %}
+<form class="logout" action="{{ url_for('authentication.logout') }}" method="POST">
+    <label>Are you sure you want to log out?</label>
+    <button class="button" type="submit">Logout</button>
+    <a class="button" href="{{ url_for('pages.home') }}">Cancel</a>
+</form>
+{% endblock %}

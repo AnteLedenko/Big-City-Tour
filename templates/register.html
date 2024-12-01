@@ -1,0 +1,16 @@
+<!-- 
+    Here we have just registration form with four inputs username, password, date and email 
+    and a submit button. With submiting this form were sending data to register route. 
+-->
+
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="h1c">Register</h1>
+<form class="register" action="{{ url_for('authentication.register') }}" method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="text" name="password" placeholder="Password" required>
+    <input type="date" name="date">
+    <input type="text" name="email" placeholder="Email">
+    <button class="button" type="submit">Submit</button>
+</form>
+{% endblock %}

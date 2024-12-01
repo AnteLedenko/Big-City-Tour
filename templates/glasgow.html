@@ -1,0 +1,55 @@
+<!-- 
+    All city page have same code structure tours are displayed with jinja for loop that displays tour name and content. 
+    Similar to tours reviews are displayed the same way just with the form only visable to authenticated user for editing or deleting their reviews.
+    And leave a review form contains textare for contnet input a dropdown select that provides option to select tour for which user is making a review by gettinng tours id 
+    and a submit button to post review.
+-->
+
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="h1c">Glasgow Tour</h1>
+<div class="tours">
+    {% for tour in tours %}
+    <div>
+        <h2 class="h1c">{{ tour.tour_name }}</h2>
+        <p class="p1">{{ tour.tour_content }}</p>
+    </div>
+    {% endfor %}
+</div>
+<div class="imgdiv">
+    <img src="{{ url_for('static', filename='images/kelvingrove.png') }}" alt="kelvingrove museum">
+    <img src="{{ url_for('static', filename='images/glasgow-cathedral.png') }}" alt="glasgow cathedral">
+    <img src="{{ url_for('static', filename='images/riverside-museum.png') }}" alt="riverside museum">
+    <img src="{{ url_for('static', filename='images/glasgow-necropolis.png') }}" alt="glasgow necropolis">
+</div>
+<h2 class="h1c">Reviews</h2>
+    <div class="review">
+        {% for review in reviews %}
+        <div class="review1">
+            <p class="p1">{{ review.review_content }}</p>
+            <p class="p1">By {{ review.created_by.username }}</p>
+            <p class="p1">Tour: {{ review.tour.tour_name }}</p>
+            {% if current_user.username == review.created_by.username %}
+            <form method="POST" action="{{ url_for('reviews.delete_review', review_id=review.review_id) }}" style="display:inline;">
+                <input type="hidden" name="next" value="{{ url_for('pages.glasgow') }}">
+                <button class="button" type="submit" onclick="return confirm('Are you sure you want to delete this review?')">Delete</button>
+                <a class="button" href="{{ url_for('reviews.edit_review', review_id=review.review_id, next=url_for('pages.glasgow')) }}">Edit</a>
+            </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+<h2 class="h1c">Leave a Review</h2>
+<form class="form" method="POST" action="{{ url_for('reviews.submit_review', city='glasgow') }}">
+    <label for="review_content">Your Review:</label>
+    <textarea name="review_content" id="review_content" rows="5" required></textarea>
+    <label for="tour_id">Select a Tour:</label>
+    <select name="tour_id" id="tour_id" required>
+        {% for tour in tours %}
+        <option value="{{ tour.tour_id }}">{{ tour.tour_name }}</option>
+        {% endfor %}
+    </select>
+    <button class="button" type="submit">Submit Review</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+<!--
+    This form allows user to edit data textarea already contains review content that can be changed 
+    with editing and clicing on save changes button. Cancel button (link) just redirects to last page.
+    By clicking on save changes were sending data to edit review route.
+-->
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Your Review</h1>
+<form class="form" action="{{ url_for('reviews.edit_review', review_id=review.review_id,
+next=request.args.get('next', url_for('pages.' + review.tour.city.lower()))) }}" method="POST">
+    <label for="review_content">Review:</label>
+    <textarea name="review_content" id="review_content" rows="5" cols="50">{{ review.review_content }}</textarea>
+    <button class="button" type="submit">Save Changes</button>
+    <a class="button" href="{{ request.args.get('next', url_for('pages.' + review.tour.city.lower())) }}">Cancel</a>
+</form>
+{% endblock %}

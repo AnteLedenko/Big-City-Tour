@@ -1,0 +1,55 @@
+<!-- 
+    On index page we just have some simple html with four image sliders. 
+-->
+
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="h1c">Welcome</h1>
+<p class="p2">
+    Welcome to Big City Tours, where we take you through the biggest cities of England, Scotland, Ireland, and Wales.
+    From the iconic landmarks of London to the cultural gems of Dublin, Glasgow, and Cardiff, our tours are designed to
+    showcase the best these cities have to offer. Start your journey with us and explore the heart of the UK and Ireland!
+</p>
+<div class="tours">
+    <div id="london-slider" class="slider">
+        <img src="{{ url_for('static', filename='images/london1.png') }}" alt="london">
+    </div>
+    <div>
+        <p class="p1">
+            London is the largest city in England and the UK, as well as its capital. It’s a global hub of history, culture,
+            and modern attractions. From the Tower of London to the bustling streets of Covent Garden, London offers a mix of historic
+            landmarks and vibrant city life that’s unmatched anywhere in the world.
+        </p>
+    </div>
+    <div>
+        <p class="p1">
+            Glasgow is Scotland’s largest city, famous for its art, music, and industrial heritage.
+            It’s a city full of character, offering attractions like Kelvingrove Museum, Glasgow Cathedral,
+            and the lively West End. Glasgow is a must-visit for anyone exploring Scotland.
+        </p>
+    </div>
+    <div id="glasgow-slider" class="slider">
+        <img src="{{ url_for('static', filename='images/glasgow1.png') }}" alt="glasgow">
+    </div>
+    <div id="dublin-slider" class="slider">
+        <img src="{{ url_for('static', filename='images/dublin1.png') }}" alt="dublin">
+    </div>
+    <div>
+        <p class="p1">
+            Dublin is the capital and largest city of Ireland, known for its friendly locals and lively atmosphere.
+            It’s a city where history and culture meet, with highlights like Trinity College, the Guinness Storehouse,
+            and the beautiful Phoenix Park. Dublin is the perfect place to experience Irish charm.
+        </p>
+    </div>
+    <div>
+        <p class="p1">
+            Cardiff is the capital and largest city of Wales, blending a rich history with a modern twist.
+            Known for Cardiff Castle, the vibrant Cardiff Bay, and the Principality Stadium, this city is a true gem
+            that showcases Welsh culture and hospitality.
+        </p>
+    </div>
+    <div id="cardiff-slider" class="slider">
+        <img src="{{ url_for('static', filename='images/cardiff1.png') }}" alt="cardiff">
+    </div>
+</div>
+{% endblock %}

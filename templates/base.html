@@ -1,0 +1,59 @@
+<!-- 
+    In base tamplate we have links for css and font, navigation that contains dynamic links that change depending on users authentication status
+    and other links to navigate trough website.
+    Footer with link to home page and contact, and after that tag for javascript.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Big City Tour</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    </head>
+    <body class="wrapper">
+        <header>
+            <ul class="nav">
+                <li class="logo"><h1>Big City Tour</h1></li>
+                <li><a href="{{ url_for('pages.home') }}">Home</a></li>
+                <li class="dropdown">
+                    <a>Cities</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('pages.london') }}">London</a></li>
+                        <li><a href="{{ url_for('pages.glasgow') }}">Glasgow</a></li>
+                        <li><a href="{{ url_for('pages.dublin') }}">Dublin</a></li>
+                        <li><a href="{{ url_for('pages.cardiff') }}">Cardiff</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a>User</a>
+                    <ul class="dropdown-menu">
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('authentication.profile') }}">Profile</a></li>
+                        <li><a href="{{ url_for('authentication.logout') }}">Log Out</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('authentication.register') }}">Register</a></li>
+                        <li><a href="{{ url_for('authentication.login') }}">Log In</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <ul class="nav">
+                <li><a href="{{ url_for('pages.home') }}">Home</a></li>
+                <li><a href="mailto:ledenko96@gmail.com">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Big City Tours. All rights reserved.</p>
+        </footer>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </body>
+</html>
