@@ -8,15 +8,15 @@ Big City Tours is a web application that showcases tours in biggest cities of En
 
 ## Features 
 - View tours and reviews for London, Glasgow, Dublin, and Cardiff.
-![Cities dropdown](static/images/screenshot1.png)
+![Cities dropdown](static/images/screenshot-1.png)
 - Logged-in users can:
   - Leave reviews for tours.
   - Edit or delete their own reviews.
   - View their profile with all their reviews.
-  ![User dropdown](static/images/screenshot2.png)
-  ![Leaving a review](static/images/screenshot3.png)
-  ![Edit or delete review](static/images/screenshot4.png)
-  ![Visit profile](static/images/screenshot5.png)
+  ![User dropdown](static/images/screenshot-2.png)
+  ![Leaving a review](static/images/screenshot-3.png)
+  ![Edit or delete review](static/images/screenshot-4.png)
+  ![Visit profile](static/images/screenshot-5.png)
 
 ## Tech Stack
 - **Backend:** Python, Flask
