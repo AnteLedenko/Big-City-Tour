@@ -4,7 +4,7 @@ Big City Tours is a web application that showcases tours in biggest cities of En
 
 ## Installation
 1. Clone the repository:
-   
+   git clone https://github.com/AnteLedenko/Big-City-Tour.git  
 
 ## Features 
 - View tours and reviews for London, Glasgow, Dublin, and Cardiff.
